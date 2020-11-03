@@ -24,6 +24,8 @@ namespace ProjetoEduX.Domains
         public virtual ICollection<AlunoTurma> AlunoTurma { get; set; }
         public virtual ICollection<Curtida> Curtida { get; set; }
         public virtual ICollection<Dica> Dica { get; set; }
+
+        public virtual ICollection<Postagem> Postagem { get; set; }
         public virtual ICollection<ProfessorTurma> ProfessorTurma { get; set; }
     }
 }

@@ -22,6 +22,8 @@ namespace ProjetoEduX.Contexts
         public virtual DbSet<Curso> Curso { get; set; }
         public virtual DbSet<Curtida> Curtida { get; set; }
         public virtual DbSet<Dica> Dica { get; set; }
+
+        public virtual DbSet<Postagem> Postagem { get; set; }
         public virtual DbSet<Instituicao> Instituicao { get; set; }
         public virtual DbSet<Objetivo> Objetivo { get; set; }
         public virtual DbSet<ObjetivoAluno> ObjetivoAluno { get; set; }
@@ -125,6 +127,24 @@ namespace ProjetoEduX.Contexts
                     .HasForeignKey(d => d.IdUsuario)
                     .HasConstraintName("FK__Dica__IdUsuario__628FA481");
             });
+
+            modelBuilder.Entity<Postagem>(entity =>
+            {
+                entity.HasKey(e => e.IdPostagem)
+                    .HasName("PK__Postagem__F1688516165E073F");
+
+                entity.Property(e => e.IdPostagem).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.Texto)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                .WithMany(p => p.Postagem)
+                .HasForeignKey(d => d.IdUsuario)
+                .HasConstraintName("FK__Dica__IdUsuario__628FA481");
+            });
+
 
             modelBuilder.Entity<Instituicao>(entity =>
             {
