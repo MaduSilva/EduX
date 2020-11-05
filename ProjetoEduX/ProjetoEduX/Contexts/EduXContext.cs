@@ -314,6 +314,10 @@ namespace ProjetoEduX.Contexts
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Pontuacao)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.IdPerfilNavigation)
                     .WithMany(p => p.Usuario)
                     .HasForeignKey(d => d.IdPerfil)

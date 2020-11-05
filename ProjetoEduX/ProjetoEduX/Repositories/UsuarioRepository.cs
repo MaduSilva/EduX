@@ -74,6 +74,7 @@ namespace ProjetoEduX.Repositories
                 usuarioTemp.Nome = usuario.Nome;
                 usuarioTemp.Email = usuario.Email;
                 usuarioTemp.Senha = usuario.Senha;
+                usuarioTemp.Pontuacao = usuario.Pontuacao;
                 usuarioTemp.DataCadastro = usuario.DataCadastro;
                 usuarioTemp.DataUltimoAcesso = usuario.DataUltimoAcesso;
                 usuarioTemp.IdPerfil = usuario.IdPerfil;
