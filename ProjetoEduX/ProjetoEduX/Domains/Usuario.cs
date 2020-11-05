@@ -20,7 +20,6 @@ namespace ProjetoEduX.Domains
         public DateTime? DataCadastro { get; set; }
         public DateTime? DataUltimoAcesso { get; set; }
         public Guid? IdPerfil { get; set; }
-        public string Pontuacao { get; set; }
         public virtual Perfil IdPerfilNavigation { get; set; }
         public virtual ICollection<AlunoTurma> AlunoTurma { get; set; }
         public virtual ICollection<Curtida> Curtida { get; set; }

@@ -22,6 +22,8 @@ namespace ProjetoEduX.Contexts
         public virtual DbSet<Curso> Curso { get; set; }
         public virtual DbSet<Curtida> Curtida { get; set; }
         public virtual DbSet<Dica> Dica { get; set; }
+
+        public virtual DbSet<Postagem> Postagem { get; set; }
         public virtual DbSet<Instituicao> Instituicao { get; set; }
         public virtual DbSet<Newsletter> Newsletter { get; set; }
         public virtual DbSet<Objetivo> Objetivo { get; set; }
