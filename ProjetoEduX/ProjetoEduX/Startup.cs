@@ -99,6 +99,8 @@ namespace ProjetoEduX
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors("CorsPolicy");
+
             app.UseRouting();
 
             app.UseAuthentication();
@@ -117,7 +119,7 @@ namespace ProjetoEduX
             app.UseSwagger();
 
             
-            app.UseCors("CorsPolicy");
+            
 
             app.UseEndpoints(endpoints =>
             {

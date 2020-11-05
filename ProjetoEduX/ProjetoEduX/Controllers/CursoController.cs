@@ -24,7 +24,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <returns>Lista de Cursos</returns>
         [HttpGet]
-        [Authorize(Roles = "Admin,Padrao")]
+      
         public IActionResult Get()
         {
             try
@@ -52,7 +52,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id"></param>
         /// <returns>Retorna o id do curso escolhido</returns>
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Padrao")]
+        
         public IActionResult Get(Guid id)
         {
             try
@@ -75,7 +75,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="curso"></param>
         /// <returns>curso</returns>
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+    
         public IActionResult Post(Curso curso)
         {
             try
@@ -96,7 +96,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id"></param>
         /// <param name="curso"></param>
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
+     
         public IActionResult Put(Guid id, Curso curso)
         {
             try
@@ -116,7 +116,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <param name="id"></param>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+     
         public IActionResult Delete(Guid id)
         {
             try

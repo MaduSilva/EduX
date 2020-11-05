@@ -29,7 +29,7 @@ namespace ProjetoEduX.Controllers
         /// <returns>Lista com todos os usuários</returns>
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
         {
             return await _context.Usuario.ToListAsync();
@@ -42,7 +42,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do usuario</param>
         /// <returns>Um usuario</returns>
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public async Task<ActionResult<Usuario>> GetUsuario(Guid id)
         {
             var usuario = await _context.Usuario.FindAsync(id);

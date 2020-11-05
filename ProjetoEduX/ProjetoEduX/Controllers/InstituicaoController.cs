@@ -90,7 +90,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="instituicao">Objeto de instituição com alterações</param>
         /// <returns> instituição alterada</returns>
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public IActionResult Put(Guid id, Instituicao instituicao)
         {
             try
@@ -117,7 +117,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="instituicao">Objeto completo de instituição</param>
         /// <returns>instituição cadastrada</returns>
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public IActionResult Post(Instituicao instituicao)
         {
             try
@@ -140,7 +140,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da instituição</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public IActionResult Delete(Guid id)
         {
             try
