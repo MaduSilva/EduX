@@ -1,152 +1,166 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ProjetoEduX.Contexts;
 using ProjetoEduX.Domains;
-using ProjetoEduX.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ProjetoEduX.Interfaces;
+using ProjetoEduX.Repositories;
 
 namespace ProjetoEduX.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuarioController : ControllerBase
+    public class usuarioController : ControllerBase
     {
-        private readonly EduXContext _context;
+        private readonly IUsuarioRepository _usuarioRepository;
 
-        public UsuarioController(EduXContext context)
+        public usuarioController()
         {
-            _context = context;
+            _usuarioRepository = new UsuarioRepository();
         }
 
-        // GET: api/Usuario
+        // GET: api/usuario
         /// <summary>
-        /// Mostra todos os usuários cadastrados
+        /// Mostra todas as instuições cadastradas
         /// </summary>
-        /// <returns>Lista com todos os usuários</returns>
-
+        /// <returns>Lista com todas as instituições</returns>
         [HttpGet]
 
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
+
+        public IActionResult Get()
         {
-            return await _context.Usuario.ToListAsync();
-        }
-
-        // GET: api/Usuario/5
-        /// <summary>
-        /// Mostra um único usuário
-        /// </summary>
-        /// <param name="id">Id do usuario</param>
-        /// <returns>Um usuario</returns>
-        [HttpGet("{id}")]
- 
-
-        public async Task<ActionResult<Usuario>> GetUsuario(Guid id)
-        {
-            var usuario = await _context.Usuario.FindAsync(id);
-
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-
-            return usuario;
-        }
-
-        // PUT: api/Usuario/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-
-        /// <summary>
-        /// Altera determinado usuario   
-        /// </summary>
-        /// <param name="id">Id do usuario</param>
-        /// <param name="usuario">Objeto do usuario com alterações</param>
-        /// <returns>usuario alterado</returns>
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(Guid id, Usuario usuario)
-        {
-
-
-            if (id != usuario.IdUsuario)
-            {
-                return BadRequest();
-            }
-
-            //Criptografa a senha e define o salt como os 3 primeiros caracteres do email
-            usuario.Senha = Crypto.Criptografar(usuario.Senha, usuario.Email.Substring(0, 3));
-
-            _context.Entry(usuario).State = EntityState.Modified;
-
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UsuarioExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
-            return NoContent();
+                var usuarios = _usuarioRepository.Listar();
+
+                if (usuarios.Count == 0)
+                    return NoContent();
+
+                return Ok(new
+                {
+                    totalCount = usuarios.Count,
+                    data = usuarios
+
+                });
+
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
         }
 
-        // POST: api/Usuario
+        // GET: api/usuario/5
+        /// <summary>
+        /// Mostra uma única instituição
+        /// </summary>
+        /// <param name="id">Id da instituição</param>
+        /// <returns>Uma instituição</returns>
+        [HttpGet("{id}")]
+
+        public IActionResult Get(Guid id)
+        {
+            try
+            {
+                Usuario usuario = _usuarioRepository.BuscarPorId(id);
+
+                if (usuario == null)
+                    return NotFound();
+
+                return Ok(usuario);
+
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
+        // PUT: api/usuario/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
 
         /// <summary>
-        /// Cadastra um usuário
+        /// Altera determinada instituição
         /// </summary>
-        /// <param name="usuario">Objeto completo de usuario</param>
-        /// <returns>usuario cadastrado</returns>
-        [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        /// <param name="id">Id da instituição</param>
+        /// <param name="usuario">Objeto de instituição com alterações</param>
+        /// <returns> instituição alterada</returns>
+        [HttpPut("{id}")]
+
+        public IActionResult Put(Guid id, Usuario usuario)
         {
-
-            //Criptografa a senha e define o salt como os 3 primeiros caracteres do email
-            usuario.Senha = Crypto.Criptografar(usuario.Senha, usuario.Email.Substring(0, 3));
-
-            _context.Usuario.Add(usuario);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetUsuario", new { id = usuario.IdUsuario }, usuario);
-        }
-
-        // DELETE: api/Usuario/5
-        /// <summary>
-        /// Exclui um usuario
-        /// </summary>
-        /// <param name="id">Id do usuario</param>
-        /// <returns>Id usuario</returns>
-        [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
-        public async Task<ActionResult<Usuario>> DeleteUsuario(Guid id)
-        {
-            var usuario = await _context.Usuario.FindAsync(id);
-            if (usuario == null)
+            try
             {
-                return NotFound();
+                //Edita a usuario
+                _usuarioRepository.Editar(usuario);
+
+                //Retorna Ok com os dados da usuario
+                return Ok(usuario);
             }
-
-            _context.Usuario.Remove(usuario);
-            await _context.SaveChangesAsync();
-
-            return usuario;
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        private bool UsuarioExists(Guid id)
+        // POST: api/usuario
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+
+        /// <summary>
+        /// Cadastra uma insituição
+        /// </summary>
+        /// <param name="usuario">Objeto completo de instituição</param>
+        /// <returns>instituição cadastrada</returns>
+        [HttpPost]
+
+        public IActionResult Post(Usuario usuario)
         {
-            return _context.Usuario.Any(e => e.IdUsuario == id);
+            try
+            {
+                _usuarioRepository.Adicionar(usuario);
+
+
+                return Ok(usuario);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        // DELETE: api/usuario/5
+        /// <summary>
+        /// Exclui uma instituição
+        /// </summary>
+        /// <param name="id">Id da instituição</param>
+        /// <returns>Id excluido</returns>
+        [HttpDelete("{id}")]
+
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+
+                var usuario = _usuarioRepository.BuscarPorId(id);
+
+
+                if (usuario == null)
+                    return NotFound();
+
+
+                _usuarioRepository.Remover(id);
+
+                return Ok(id);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

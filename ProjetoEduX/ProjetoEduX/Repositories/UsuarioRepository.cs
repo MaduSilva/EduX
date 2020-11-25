@@ -11,42 +11,43 @@ namespace ProjetoEduX.Repositories
     public class UsuarioRepository : IUsuarioRepository
     {
 
-        private readonly EduXContext _ctx;
+        private EduXContext _ctx;
         public UsuarioRepository()
         {
             _ctx = new EduXContext();
         }
 
-
         /// <summary>
-        /// Adiciona um usuario
+        /// Cria uma usuario
         /// </summary>
-        /// <param name="usuario">usuario a ser adicionado</param>
+        /// <param name="usuario">usuario a ser criada</param>
         public void Adicionar(Usuario usuario)
         {
             try
             {
+
                 _ctx.Usuario.Add(usuario);
+
 
                 _ctx.SaveChanges();
             }
             catch (Exception ex)
             {
+
                 throw new Exception(ex.Message);
             }
         }
 
         /// <summary>
-        /// Busca usuarios pelo id
+        /// Busca uma usuario pelo Id
         /// </summary>
-        /// <param name="id">id do usuario</param>
+        /// <param name="id">Id da usuario</param>
         /// <returns>usuario</returns>
         public Usuario BuscarPorId(Guid id)
         {
             try
             {
-                return _ctx.Usuario.Find(id);
-
+                return _ctx.Usuario.FirstOrDefault(c => c.IdUsuario == id);
             }
             catch (Exception ex)
             {
@@ -56,9 +57,9 @@ namespace ProjetoEduX.Repositories
         }
 
         /// <summary>
-        /// Edita um usuario ja criado
+        /// edita uma usuario ja existente
         /// </summary>
-        /// <param name="usuario">usuario a ser editado</param>
+        /// <param name="usuario">usuario a ser editada</param>
         public void Editar(Usuario usuario)
         {
             try
@@ -68,18 +69,13 @@ namespace ProjetoEduX.Repositories
 
 
                 if (usuarioTemp == null)
-                    throw new Exception("Usuário não encontrado");
+                    throw new Exception("Instituição não encontrada");
 
                 //Caso exista, fará a alteração
                 usuarioTemp.Nome = usuario.Nome;
                 usuarioTemp.Email = usuario.Email;
                 usuarioTemp.Senha = usuario.Senha;
-                usuarioTemp.Pontuacao = usuario.Pontuacao;
-                usuarioTemp.DataCadastro = usuario.DataCadastro;
-                usuarioTemp.DataUltimoAcesso = usuario.DataUltimoAcesso;
-                usuarioTemp.IdPerfil = usuario.IdPerfil;
-
-
+    
                 _ctx.Usuario.Update(usuarioTemp);
                 _ctx.SaveChanges();
             }
@@ -91,9 +87,9 @@ namespace ProjetoEduX.Repositories
         }
 
         /// <summary>
-        /// Lista os usuarios criados
+        /// Lista as instituicoes ja criadas
         /// </summary>
-        /// <returns>lista de usuarios</returns>
+        /// <returns>lista de instituicoes</returns>
         public List<Usuario> Listar()
         {
             try
@@ -108,15 +104,18 @@ namespace ProjetoEduX.Repositories
         }
 
         /// <summary>
-        /// Remove usuarios pelo id
+        /// remove uma usuario pelo seu id
         /// </summary>
-        /// <param name="id">id do usuario</param>
+        /// <param name="id">id da usuario</param>
         public void Remover(Guid id)
         {
             try
             {
 
                 Usuario usuarioTemp = BuscarPorId(id);
+
+                if (usuarioTemp == null)
+                    throw new Exception("usuario não encontrada");
 
 
                 _ctx.Usuario.Remove(usuarioTemp);
@@ -128,6 +127,6 @@ namespace ProjetoEduX.Repositories
                 throw new Exception(ex.Message);
             }
         }
+
     }
 }
-

@@ -11,7 +11,10 @@ namespace ProjetoEduX.Domains
 
         public Guid IdPostagem { get; set; }
         public string Texto { get; set; }
+        public string Titulo { get; set; }
         public Guid IdUsuario { get; set; }
+
+        public Guid IdCurtida { get; set; }
 
         [NotMapped]
         [JsonIgnore]
@@ -22,5 +25,6 @@ namespace ProjetoEduX.Domains
         public string UrlImagem { get; set; }
 
         public virtual Usuario IdUsuarioNavigation { get; set; }
+        public virtual Curtida IdCurtidaNavigation { get; set; }
     }
 }

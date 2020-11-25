@@ -13,7 +13,7 @@ namespace ProjetoEduX.Interfaces
         Curso BuscarPorId(Guid id);
         void Adicionar(Curso curso);
         void Editar(Curso curso);
-        void Excluir(Guid id);
+        void Remover (Guid id);
 
     }
 }

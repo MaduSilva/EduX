@@ -32,6 +32,9 @@ namespace ProjetoEduX.Contexts
         public virtual DbSet<ProfessorTurma> ProfessorTurma { get; set; }
         public virtual DbSet<Turma> Turma { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Ranking> Ranking { get; set; }
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -101,15 +104,11 @@ namespace ProjetoEduX.Contexts
 
                 entity.Property(e => e.IdCurtida).HasDefaultValueSql("(newid())");
 
-                entity.HasOne(d => d.IdDicaNavigation)
-                    .WithMany(p => p.Curtida)
-                    .HasForeignKey(d => d.IdDica)
-                    .HasConstraintName("FK__Curtida__IdDica__6754599E");
+                entity.Property(e => e.Numero)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
 
-                entity.HasOne(d => d.IdUsuarioNavigation)
-                    .WithMany(p => p.Curtida)
-                    .HasForeignKey(d => d.IdUsuario)
-                    .HasConstraintName("FK__Curtida__IdUsuar__66603565");
+
             });
 
             modelBuilder.Entity<Dica>(entity =>
@@ -123,10 +122,39 @@ namespace ProjetoEduX.Contexts
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Titulo)
+                   .HasMaxLength(255)
+                   .IsUnicode(false);
+
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Dica)
                     .HasForeignKey(d => d.IdUsuario)
                     .HasConstraintName("FK__Dica__IdUsuario__628FA481");
+            });
+
+            modelBuilder.Entity<Ranking>(entity =>
+            {
+                entity.HasKey(e => e.IdRanking)
+                    .HasName("PK__Ranking__F1688516165E073F");
+
+                entity.Property(e => e.IdRanking).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.Posicao)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.QuantidadeTotal)
+                   .HasMaxLength(255)
+                   .IsUnicode(false);
+
+                entity.Property(e => e.Descricao)
+                 .HasMaxLength(255)
+                 .IsUnicode(false);
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                .WithMany(p => p.Ranking)
+                .HasForeignKey(d => d.IdUsuario)
+                .HasConstraintName("FK__Ranking__IdUsuario__628FA481");
             });
 
             modelBuilder.Entity<Postagem>(entity =>
@@ -140,10 +168,19 @@ namespace ProjetoEduX.Contexts
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Titulo)
+                   .HasMaxLength(255)
+                   .IsUnicode(false);
+
                 entity.HasOne(d => d.IdUsuarioNavigation)
                     .WithMany(p => p.Postagem)
                     .HasForeignKey(d => d.IdUsuario)
-                    .HasConstraintName("FK__Dica__IdUsuario__628FA481");
+                    .HasConstraintName("FK__Postagem__IdUsuario__628FA481");
+
+                entity.HasOne(d => d.IdCurtidaNavigation)
+                   .WithMany(p => p.Postagem)
+                   .HasForeignKey(d => d.IdCurtida)
+                   .HasConstraintName("FK__Postagem__IdCurtida__628FA481");
             });
 
             modelBuilder.Entity<Instituicao>(entity =>

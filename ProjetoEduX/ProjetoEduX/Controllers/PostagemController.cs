@@ -28,7 +28,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <returns>Lista com todas as Postagems</returns>
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+       
         public async Task<ActionResult<IEnumerable<Postagem>>> GetPostagem()
         {
             return await _context.Postagem.ToListAsync();
@@ -41,7 +41,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da Postagem</param>
         /// <returns>Uma Postagem</returns>
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin")]
+        
         public async Task<ActionResult<Postagem>> GetPostagem(Guid id)
         {
             var Postagem = await _context.Postagem.FindAsync(id);
@@ -65,7 +65,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="Postagem">Objeto de Postagem com alterações</param>
         /// <returns> Postagem alterada</returns>
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
+    
         public async Task<IActionResult> PutPostagem(Guid id, Postagem Postagem)
         {
             if (id != Postagem.IdPostagem)
@@ -104,7 +104,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="Postagem">Objeto completo de Postagem</param>
         /// <returns>Postagem cadastrada</returns>
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+      
         public async Task<ActionResult<Postagem>> PostPostagem([FromForm] Postagem Postagem)
         {
             try
@@ -137,7 +137,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da Postagem</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+       
         public async Task<ActionResult<Postagem>> DeletePostagem(Guid id)
         {
             var Postagem = await _context.Postagem.FindAsync(id);

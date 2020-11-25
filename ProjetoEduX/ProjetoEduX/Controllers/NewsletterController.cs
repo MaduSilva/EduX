@@ -138,7 +138,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id da Newsletter</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+      
         public IActionResult Delete(Guid id)
         {
             try

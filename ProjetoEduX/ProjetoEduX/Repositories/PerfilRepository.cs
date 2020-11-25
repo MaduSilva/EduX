@@ -80,21 +80,26 @@ namespace ProjetoEduX
 
         public void Remover(Guid id)
         {
-            try
-            {
-                Perfil perfilTemp = BuscarPorId(id);
+            
+           
+                try
+                {
 
-                if (perfilTemp == null)
-                    throw new Exception("Perfil não encontrado");
+                    Perfil perfilTemp = BuscarPorId(id);
 
-                _ctx.Perfil.Remove(perfilTemp);
-                _ctx.SaveChanges();
-            }
-            catch (Exception ex)
-            {
+                    if (perfilTemp == null)
+                        throw new Exception("perfil não encontrado");
 
-                throw new Exception(ex.Message);
-            }
+
+                    _ctx.Perfil.Remove(perfilTemp);
+
+                    _ctx.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            
         }
     }
 }

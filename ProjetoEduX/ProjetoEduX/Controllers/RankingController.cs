@@ -1,49 +1,50 @@
 ﻿using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoEdux.Repositories;
 using ProjetoEduX.Domains;
 using ProjetoEduX.Interfaces;
 using ProjetoEduX.Repositories;
+using ProjetoEduX.Utils;
 
 namespace ProjetoEduX.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InstituicaoController : ControllerBase
+    public class rankingController : ControllerBase
     {
-        private readonly IInstituicaoRepository _instituicaoRepository;
-
-        public InstituicaoController()
+        private readonly IRankingRepository _rankingRepository;
+        public rankingController()
         {
-            _instituicaoRepository = new InstituicaoRepository();
+            _rankingRepository = new RankingRepository();
         }
 
-        // GET: api/Instituicao
+        // GET: api/ranking
         /// <summary>
         /// Mostra todas as instuições cadastradas
         /// </summary>
         /// <returns>Lista com todas as instituições</returns>
         [HttpGet]
-       
+
 
         public IActionResult Get()
         {
             try
             {
 
-                var instituicoes = _instituicaoRepository.Listar();
+                var Ranking = _rankingRepository.Listar();
 
-                if (instituicoes.Count == 0)
+                if (Ranking.Count == 0)
                     return NoContent();
 
                 return Ok(new
                 {
-                    totalCount = instituicoes.Count,
-                    data = instituicoes
+                    totalCount = Ranking.Count,
+                    data = Ranking
 
                 });
 
-                
+
             }
             catch (Exception ex)
             {
@@ -52,24 +53,24 @@ namespace ProjetoEduX.Controllers
             }
         }
 
-        // GET: api/Instituicao/5
+        // GET: api/ranking/5
         /// <summary>
         /// Mostra uma única instituição
         /// </summary>
         /// <param name="id">Id da instituição</param>
         /// <returns>Uma instituição</returns>
         [HttpGet("{id}")]
-   
+
         public IActionResult Get(Guid id)
         {
             try
             {
-                Instituicao instituicao = _instituicaoRepository.BuscarPorId(id);
+                Ranking ranking = _rankingRepository.BuscarPorId(id);
 
-                if (instituicao == null)
+                if (ranking == null)
                     return NotFound();
 
-                return Ok(instituicao);
+                return Ok(ranking);
 
             }
             catch (Exception ex)
@@ -79,7 +80,7 @@ namespace ProjetoEduX.Controllers
             }
         }
 
-        // PUT: api/Instituicao/5
+        // PUT: api/ranking/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
 
@@ -87,19 +88,19 @@ namespace ProjetoEduX.Controllers
         /// Altera determinada instituição
         /// </summary>
         /// <param name="id">Id da instituição</param>
-        /// <param name="instituicao">Objeto de instituição com alterações</param>
+        /// <param name="ranking">Objeto de instituição com alterações</param>
         /// <returns> instituição alterada</returns>
         [HttpPut("{id}")]
-    
-        public IActionResult Put(Guid id, Instituicao instituicao)
+
+        public IActionResult Put(Guid id, Ranking ranking)
         {
             try
             {
-                //Edita a instituicao
-                _instituicaoRepository.Editar(instituicao);
+                //Edita a ranking
+                _rankingRepository.Editar(ranking);
 
-                //Retorna Ok com os dados da instituicao
-                return Ok(instituicao);
+                //Retorna Ok com os dados da ranking
+                return Ok(ranking);
             }
             catch (Exception ex)
             {
@@ -107,25 +108,25 @@ namespace ProjetoEduX.Controllers
             }
         }
 
-        // POST: api/Instituicao
+        // POST: api/ranking
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
 
         /// <summary>
         /// Cadastra uma insituição
         /// </summary>
-        /// <param name="instituicao">Objeto completo de instituição</param>
+        /// <param name="ranking">Objeto completo de instituição</param>
         /// <returns>instituição cadastrada</returns>
         [HttpPost]
-     
-        public IActionResult Post(Instituicao instituicao)
+
+        public IActionResult Post(Ranking ranking)
         {
             try
             {
-                _instituicaoRepository.Adicionar(instituicao);
+                _rankingRepository.Adicionar(ranking);
 
 
-                return Ok(instituicao);
+                return Ok(ranking);
             }
             catch (Exception ex)
             {
@@ -133,27 +134,27 @@ namespace ProjetoEduX.Controllers
             }
         }
 
-        // DELETE: api/Instituicao/5
+        // DELETE: api/ranking/5
         /// <summary>
         /// Exclui uma instituição
         /// </summary>
         /// <param name="id">Id da instituição</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
-        
+
         public IActionResult Delete(Guid id)
         {
             try
             {
 
-                var instituicao = _instituicaoRepository.BuscarPorId(id);
+                var Ranking = _rankingRepository.BuscarPorId(id);
 
 
-                if (instituicao == null)
+                if (Ranking == null)
                     return NotFound();
 
 
-                _instituicaoRepository.Remover(id);
+                _rankingRepository.Excluir(id);
 
                 return Ok(id);
             }

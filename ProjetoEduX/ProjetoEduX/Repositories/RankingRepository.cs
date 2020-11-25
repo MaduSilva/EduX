@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace ProjetoEdux.Repositories
 {
-    public class DicaRepository : IDicaRepository
+    public class RankingRepository : IRankingRepository
     {
         private readonly EduXContext _ctx = new EduXContext();
-        public void Adicionar(Dica dica)
+        public void Adicionar(Ranking ranking)
         {
             try
             {
-              
-                _ctx.Dica.Add(dica);
+
+                _ctx.Ranking.Add(ranking);
 
                 _ctx.SaveChanges();
             }
@@ -29,12 +29,12 @@ namespace ProjetoEdux.Repositories
             }
         }
 
-        public Dica BuscarPorId(Guid id)
+        public Ranking BuscarPorId(Guid id)
         {
 
             try
             {
-                return _ctx.Dica.Find(id);
+                return _ctx.Ranking.Find(id);
             }
             catch (Exception ex)
             {
@@ -43,17 +43,17 @@ namespace ProjetoEdux.Repositories
 
         }
 
-        public void Editar(Dica dica)
+        public void Editar(Ranking ranking)
         {
             {
                 try
                 {
-                    Dica dicaTemp = BuscarPorId(dica.IdDica);
+                    Ranking rankingTemp = BuscarPorId(ranking.IdRanking);
 
-                    if (dicaTemp == null)
-                        throw new Exception("Dica não encontrada.");
+                    if (rankingTemp == null)
+                        throw new Exception("Ranking não encontrada.");
 
-                    _ctx.Dica.Update(dicaTemp);
+                    _ctx.Ranking.Update(rankingTemp);
                     _ctx.SaveChanges();
                 }
                 catch (Exception ex)
@@ -67,12 +67,12 @@ namespace ProjetoEdux.Repositories
         {
             try
             {
-                Dica dica = BuscarPorId(id);
+                Ranking ranking = BuscarPorId(id);
 
-                if (dica == null)
-                    throw new Exception("Dica não encontrada");
+                if (ranking == null)
+                    throw new Exception("Ranking não encontrada");
 
-                _ctx.Dica.Remove(dica);
+                _ctx.Ranking.Remove(ranking);
 
                 _ctx.SaveChanges();
 
@@ -83,12 +83,12 @@ namespace ProjetoEdux.Repositories
             }
         }
 
-        public List<Dica> Listar()
+        public List<Ranking> Listar()
         {
             try
             {
-                List<Dica> Dica = _ctx.Dica.ToList();
-                return Dica;
+                List<Ranking> Ranking = _ctx.Ranking.ToList();
+                return Ranking;
             }
             catch (Exception ex)
             {

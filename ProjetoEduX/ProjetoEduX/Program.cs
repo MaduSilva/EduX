@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ProjetoEduX
 {
-#pragma warning disable CS1591
+
     public class Program
     {
         public static void Main(string[]  args)
@@ -23,5 +23,5 @@ namespace ProjetoEduX
                     webBuilder.UseStartup<Startup>();
                 });
     }
-#pragma warning disable CS1591
+
 }

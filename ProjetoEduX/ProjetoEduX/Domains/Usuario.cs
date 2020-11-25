@@ -8,7 +8,6 @@ namespace ProjetoEduX.Domains
         public Usuario()
         {
             AlunoTurma = new HashSet<AlunoTurma>();
-            Curtida = new HashSet<Curtida>();
             Dica = new HashSet<Dica>();
             ProfessorTurma = new HashSet<ProfessorTurma>();
         }
@@ -22,8 +21,10 @@ namespace ProjetoEduX.Domains
         public Guid? IdPerfil { get; set; }
         public virtual Perfil IdPerfilNavigation { get; set; }
         public virtual ICollection<AlunoTurma> AlunoTurma { get; set; }
-        public virtual ICollection<Curtida> Curtida { get; set; }
+       
         public virtual ICollection<Dica> Dica { get; set; }
+
+        public virtual ICollection<Ranking> Ranking { get; set; }
 
         public virtual ICollection<Postagem> Postagem { get; set; }
         public virtual ICollection<ProfessorTurma> ProfessorTurma { get; set; }

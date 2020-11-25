@@ -1,0 +1,747 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProjetoEduX</name>
+    </assembly>
+    <members>
+        <member name="M:ProjetoEduX.Controllers.AlunoTurmaController.Get">
+            <summary>
+            Mostra todos os AlunoTurmas cadastrados
+            </summary>
+            <returns>Lista com todos os AlunoTurmas</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.AlunoTurmaController.Get(System.Guid)">
+            <summary>
+            Mostra um único AlunoTurma
+            </summary>
+            <param name="id">Id do AlunoTurma</param>
+            <returns>Um AlunoTurma</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.AlunoTurmaController.Put(System.Guid,ProjetoEduX.Domains.AlunoTurma)">
+            <summary>
+            Altera determinado AlunoTurma 
+            </summary>
+            <param name="id">Id do AlunoTurma</param>
+            <param name="alunoTurma">Objeto do alunoturma com alterações</param>
+            <returns>alunoTurma alterado</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.AlunoTurmaController.Post(ProjetoEduX.Domains.AlunoTurma)">
+            <summary>
+            Cadastra um AlunoTurma
+            </summary>
+            <param name="alunoTurma">Objeto completo de AlunoTurma</param>
+            <returns>perfil AlunoTurma</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.AlunoTurmaController.Delete(System.Guid)">
+            <summary>
+            Exclui um AlunoTurma
+            </summary>
+            <param name="id">Id do AlunoTurma</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CategoriaController.GetCategoria">
+            <summary>
+            Mostra todas as categorias cadastradas
+            </summary>
+            <returns>Lista com todas as categorias</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CategoriaController.GetCategoria(System.Guid)">
+            <summary>
+            Mostra uma única categoria 
+            </summary>
+            <param name="id">Id da categoria</param>
+            <returns>Uma categoria</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CategoriaController.PutCategoria(System.Guid,ProjetoEduX.Domains.Categoria)">
+            <summary>
+            Altera determinada categoria
+            </summary>
+            <param name="id">Id da categoria</param>
+            <param name="categoria">Objeto de categoria com alterações</param>
+            <returns>categoria alterada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CategoriaController.PostCategoria(ProjetoEduX.Domains.Categoria)">
+            <summary>
+            Cadastra uma categoria
+            </summary>
+            <param name="categoria">Objeto completo de categoria</param>
+            <returns>categoria cadastrada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CategoriaController.DeleteCategoria(System.Guid)">
+            <summary>
+            Exclui uma categoria
+            </summary>
+            <param name="id">Id da categoria</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CursoController.Get">
+            <summary>
+            Mostra todas as instuições cadastradas
+            </summary>
+            <returns>Lista com todas as instituições</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CursoController.Get(System.Guid)">
+            <summary>
+            Mostra uma única instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Uma instituição</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CursoController.Put(System.Guid,ProjetoEduX.Domains.Curso)">
+            <summary>
+            Altera determinada instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <param name="Curso">Objeto de instituição com alterações</param>
+            <returns> instituição alterada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CursoController.Post(ProjetoEduX.Domains.Curso)">
+            <summary>
+            Cadastra uma insituição
+            </summary>
+            <param name="Curso">Objeto completo de instituição</param>
+            <returns>instituição cadastrada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CursoController.Delete(System.Guid)">
+            <summary>
+            Exclui uma instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CurtidaController.Get">
+            <summary>
+            Mostra todas as Curtidas cadastradas
+            </summary>
+            <returns>Lista com todas as curtidas</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CurtidaController.Get(System.Guid)">
+            <summary>
+            Mostra uma única curtida
+            </summary>
+            <param name="id">Id da curtida</param>
+            <returns>Uma curtida</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CurtidaController.Post(ProjetoEduX.Domains.Curtida)">
+            <summary>
+            Cadastra uma curtida
+            </summary>
+            <param name="curtida">Objeto completo de curtida</param>
+            <returns>curtida cadastrada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.CurtidaController.Delete(System.Guid)">
+            <summary>
+            Exclui uma curtida
+            </summary>
+            <param name="id">Id da curtida</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.dicaController.Get">
+            <summary>
+            Mostra todas as instuições cadastradas
+            </summary>
+            <returns>Lista com todas as instituições</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.dicaController.Get(System.Guid)">
+            <summary>
+            Mostra uma única instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Uma instituição</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.dicaController.Put(System.Guid,ProjetoEduX.Domains.Dica)">
+            <summary>
+            Altera determinada instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <param name="dica">Objeto de instituição com alterações</param>
+            <returns> instituição alterada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.dicaController.Post(ProjetoEduX.Domains.Dica)">
+            <summary>
+            Cadastra uma insituição
+            </summary>
+            <param name="dica">Objeto completo de instituição</param>
+            <returns>instituição cadastrada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.dicaController.Delete(System.Guid)">
+            <summary>
+            Exclui uma instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.InstituicaoController.Get">
+            <summary>
+            Mostra todas as instuições cadastradas
+            </summary>
+            <returns>Lista com todas as instituições</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.InstituicaoController.Get(System.Guid)">
+            <summary>
+            Mostra uma única instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Uma instituição</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.InstituicaoController.Put(System.Guid,ProjetoEduX.Domains.Instituicao)">
+            <summary>
+            Altera determinada instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <param name="instituicao">Objeto de instituição com alterações</param>
+            <returns> instituição alterada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.InstituicaoController.Post(ProjetoEduX.Domains.Instituicao)">
+            <summary>
+            Cadastra uma insituição
+            </summary>
+            <param name="instituicao">Objeto completo de instituição</param>
+            <returns>instituição cadastrada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.InstituicaoController.Delete(System.Guid)">
+            <summary>
+            Exclui uma instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.LoginController.Login(ProjetoEduX.Domains.Usuario)">
+            <summary>
+            Cadastra um login
+            </summary>
+            <param name="login">Objeto completo de login</param>
+            <returns>login cadastrado</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.NewsletterController.Get">
+            <summary>
+            Mostra todas as Newsletters cadastradas
+            </summary>
+            <returns>Lista com todas as newsletters</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.NewsletterController.Get(System.Guid)">
+            <summary>
+            Mostra uma única Newsletter
+            </summary>
+            <param name="id">Id da Newsletter</param>
+            <returns>Uma Newsletter</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.NewsletterController.Put(System.Guid,ProjetoEduX.Domains.Newsletter)">
+            <summary>
+            Altera determinada Newsletter
+            </summary>
+            <param name="id">Id da newsletter</param>
+            <param name="newsletter">Objeto de Newsletter com alterações</param>
+            <returns> newsletter alterada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.NewsletterController.Post(ProjetoEduX.Domains.Newsletter)">
+            <summary>
+            Cadastra uma Newsletter
+            </summary>
+            <param name="newsletter">Objeto completo de Newsletter</param>
+            <returns>newsletter cadastrada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.NewsletterController.Delete(System.Guid)">
+            <summary>
+            Exclui uma newsletter
+            </summary>
+            <param name="id">Id da Newsletter</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoAlunoController.Get">
+            <summary>
+            Mostra todos os ObjetivoAlunos cadastrados
+            </summary>
+            <returns>Lista com todos os objetivoAlunos</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoAlunoController.Get(System.Guid)">
+            <summary>
+            Mostra um único ObjetivoAluno
+            </summary>
+            <param name="id">Id do ObjetivoAluno</param>
+            <returns>Um ObjetivoAluno</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoAlunoController.Put(System.Guid,ProjetoEduX.Domains.ObjetivoAluno)">
+            <summary>
+            Altera determinado ObjetivoAluno
+            </summary>
+            <param name="id">Id do ObjtivoAluno</param>
+            <param name="objetivoaluno">Objeto de objetivoAluno com alterações</param>
+            <returns> ObjetivoAluno alterada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoAlunoController.Post(ProjetoEduX.Domains.ObjetivoAluno)">
+            <summary>
+            Cadastra um ObjetivoAluno
+            </summary>
+            <param name="objetivoaluno">Objeto completo de ObjetivoAluno</param>
+            <returns>ObjetivoAluno cadastrado</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoAlunoController.Delete(System.Guid)">
+            <summary>
+            Exclui um objetivoAluno
+            </summary>
+            <param name="id">Id do objetivoAluno</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoController.Get">
+            <summary>
+            Mostra todos os Objetivos cadastrados
+            </summary>
+            <returns>Lista com todos os objetivos</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoController.Get(System.Guid)">
+            <summary>
+            Mostra um único objetivo
+            </summary>
+            <param name="id">Id do Objetivo</param>
+            <returns>Um Objetivo</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoController.Put(System.Guid,ProjetoEduX.Domains.Objetivo)">
+            <summary>
+            Altera determinado objetivo
+            </summary>
+            <param name="id">Id do Objetivo</param>
+            <param name="objetivo">Objeto de objetivo com alterações</param>
+            <returns> Objetivo alterado</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoController.Post(ProjetoEduX.Domains.Objetivo)">
+            <summary>
+            Cadastra um Objetivo
+            </summary>
+            <param name="objetivo">Objeto completo de Objetivo</param>
+            <returns>Objetivo cadastrado</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ObjetivoController.Delete(System.Guid)">
+            <summary>
+            Exclui um objetivo
+            </summary>
+            <param name="id">Id do objetivo</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PerfilController.Get">
+            <summary>
+            Mostra todos os perfils cadastrados
+            </summary>
+            <returns>Lista com todos os perfils</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PerfilController.Get(System.Guid)">
+            <summary>
+            Mostra um único perfil
+            </summary>
+            <param name="id">Id do perfil</param>
+            <returns>Um perfil</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PerfilController.Post(ProjetoEduX.Domains.Perfil)">
+            <summary>
+            Cadastra um perfil
+            </summary>
+            <param name="perfil">Objeto completo de perfil</param>
+            <returns>perfil cadastrado</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PerfilController.Put(System.Guid,ProjetoEduX.Domains.Perfil)">
+            <summary>
+            Altera determinado perfil   
+            </summary>
+            <param name="id">Id do perfil</param>
+            <param name="perfil">Objeto do perfil com alterações</param>
+            <returns>perfil alterado</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PerfilController.Delete(System.Guid)">
+            <summary>
+            Exclui um perfil
+            </summary>
+            <param name="id">Id do perfil</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PostagemController.GetPostagem">
+            <summary>
+            Mostra todas as Postagems cadastradas
+            </summary>
+            <returns>Lista com todas as Postagems</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PostagemController.GetPostagem(System.Guid)">
+            <summary>
+            Mostra uma única Postagem
+            </summary>
+            <param name="id">Id da Postagem</param>
+            <returns>Uma Postagem</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PostagemController.PutPostagem(System.Guid,ProjetoEduX.Domains.Postagem)">
+            <summary>
+            Altera determinada Postagem
+            </summary>
+            <param name="id">Id da Postagem</param>
+            <param name="Postagem">Objeto de Postagem com alterações</param>
+            <returns> Postagem alterada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PostagemController.PostPostagem(ProjetoEduX.Domains.Postagem)">
+            <summary>
+            Cadastra uma Postagem
+            </summary>
+            <param name="Postagem">Objeto completo de Postagem</param>
+            <returns>Postagem cadastrada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.PostagemController.DeletePostagem(System.Guid)">
+            <summary>
+            Exclui uma Postagem
+            </summary>
+            <param name="id">Id da Postagem</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ProfessorTurmaController.Get">
+            <summary>
+            Mostra todos os ProfessorTurmas cadastrados
+            </summary>
+            <returns>Lista com todos os ProfessorTurmas</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ProfessorTurmaController.Get(System.Guid)">
+            <summary>
+            Mostra um único ProfessorTurma
+            </summary>
+            <param name="id">Id do ProfessorTurma</param>
+            <returns>Um ProfessorTurma</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ProfessorTurmaController.Put(System.Guid,ProjetoEduX.Domains.ProfessorTurma)">
+            <summary>
+            Altera determinado ProfessorTurma
+            </summary>
+            <param name="id">Id do ProfessorTurma</param>
+            <param name="professorTurma">Objeto de ProfessorTurma com alterações</param>
+            <returns> ProfessorTurma alterado</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ProfessorTurmaController.Post(ProjetoEduX.Domains.ProfessorTurma)">
+            <summary>
+            Cadastra um ProfessorTurma
+            </summary>
+            <param name="professorTurma">Objeto completo de ProfessorTurma</param>
+            <returns>ProfessorTurma cadastrado</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.ProfessorTurmaController.Delete(System.Guid)">
+            <summary>
+            Exclui um ProfessorTurma
+            </summary>
+            <param name="id">Id do ProfessorTurma</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.rankingController.Get">
+            <summary>
+            Mostra todas as instuições cadastradas
+            </summary>
+            <returns>Lista com todas as instituições</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.rankingController.Get(System.Guid)">
+            <summary>
+            Mostra uma única instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Uma instituição</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.rankingController.Put(System.Guid,ProjetoEduX.Domains.Ranking)">
+            <summary>
+            Altera determinada instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <param name="ranking">Objeto de instituição com alterações</param>
+            <returns> instituição alterada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.rankingController.Post(ProjetoEduX.Domains.Ranking)">
+            <summary>
+            Cadastra uma insituição
+            </summary>
+            <param name="ranking">Objeto completo de instituição</param>
+            <returns>instituição cadastrada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.rankingController.Delete(System.Guid)">
+            <summary>
+            Exclui uma instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.TurmaController.Get">
+             <summary>
+             Mostar todos as turmas cadastradas
+             </summary>
+             <returns>Lista com as Turmas</returns>
+            
+        </member>
+        <member name="M:ProjetoEduX.Controllers.TurmaController.Get(System.Guid)">
+            <summary>
+            Buscar por determinado Id
+            </summary>
+            <param name="id"></param>
+            <returns>Retorna o Id da turma escolhida</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.TurmaController.Post(ProjetoEduX.Domains.Turma)">
+            <summary>
+            Cadastrar Turma
+            </summary>
+            <param name="turma"></param>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.TurmaController.Put(System.Guid,ProjetoEduX.Domains.Turma)">
+            <summary>
+            Modificar Turma
+            </summary>
+            <param name="id"></param>
+            <param name="turma"></param>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.TurmaController.Delete(System.Guid)">
+            <summary>
+            Deletar determinada Turma
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.usuarioController.Get">
+            <summary>
+            Mostra todas as instuições cadastradas
+            </summary>
+            <returns>Lista com todas as instituições</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.usuarioController.Get(System.Guid)">
+            <summary>
+            Mostra uma única instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Uma instituição</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.usuarioController.Put(System.Guid,ProjetoEduX.Domains.Usuario)">
+            <summary>
+            Altera determinada instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <param name="usuario">Objeto de instituição com alterações</param>
+            <returns> instituição alterada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.usuarioController.Post(ProjetoEduX.Domains.Usuario)">
+            <summary>
+            Cadastra uma insituição
+            </summary>
+            <param name="usuario">Objeto completo de instituição</param>
+            <returns>instituição cadastrada</returns>
+        </member>
+        <member name="M:ProjetoEduX.Controllers.usuarioController.Delete(System.Guid)">
+            <summary>
+            Exclui uma instituição
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Id excluido</returns>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoAlunoRepository.Listar">
+            <summary>
+            Lista todos os objetivos de aluno
+            </summary>
+            <returns>Todos os objetivos de aluno</returns>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoAlunoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca um objetivo através do Id
+            </summary>
+            <param name="id"></param>
+            <returns>O objetivo aluno solicitado pelo Id</returns>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoAlunoRepository.Adicionar(ProjetoEduX.Domains.ObjetivoAluno)">
+            <summary>
+            Adiciona um objetivo objetivo aluno
+            </summary>
+            <param name="objetivoaluno"></param>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoAlunoRepository.Editar(ProjetoEduX.Domains.ObjetivoAluno)">
+            <summary>
+            Edita um dado de objetivo aluno
+            </summary>
+            <param name="objetivoaluno"></param>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoAlunoRepository.Remover(System.Guid)">
+            <summary>
+            Remove um objetivo aluno
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoRepository.Listar">
+            <summary>
+            Lista todos os objetivos
+            </summary>
+            <returns>Todos os objetivos</returns>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca um objetivo através do Id
+            </summary>
+            <param name="id"></param>
+            <returns>O objetivo solicitado pelo Id</returns>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoRepository.Adicionar(ProjetoEduX.Domains.Objetivo)">
+            <summary>
+            Adiciona um objetivo
+            </summary>
+            <param name="objetivo"></param>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoRepository.Editar(ProjetoEduX.Domains.Objetivo)">
+            <summary>
+            Edita um dado de objetivo
+            </summary>
+            <param name="objetivo"></param>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IObjetivoRepository.Remover(System.Guid)">
+            <summary>
+            Remove um objetivo
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IProfessorTurmaRepository.Listar">
+            <summary>	
+            Lista todos os professores	
+            </summary>	
+            <returns>Os professores</returns>	
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IProfessorTurmaRepository.BuscarPorId(System.Guid)">
+            <summary>	
+            Busca um professor pelo id	
+            </summary>	
+            <param name="id"></param>	
+            <returns>O professor solicitado pelo id</returns>	
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IProfessorTurmaRepository.Adicionar(ProjetoEduX.Domains.ProfessorTurma)">
+            <summary>	
+            Adiciona um professor 	
+            </summary>	
+            <param name="professorturma"></param>	
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IProfessorTurmaRepository.Editar(ProjetoEduX.Domains.ProfessorTurma)">
+            <summary>	
+            Edita as informações de um professor	
+            </summary>	
+            <param name="professorturma"></param>	
+        </member>
+        <member name="M:ProjetoEduX.Interfaces.IProfessorTurmaRepository.Remover(System.Guid)">
+            <summary>	
+            Remove um professor	
+            </summary>	
+            <param name="id"></param>	
+        </member>
+        <member name="M:ProjetoEduX.Repositories.CursoRepository.Adicionar(ProjetoEduX.Domains.Curso)">
+            <summary>
+            Cria uma curso
+            </summary>
+            <param name="curso">curso a ser criada</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.CursoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca uma curso pelo Id
+            </summary>
+            <param name="id">Id da curso</param>
+            <returns>curso</returns>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.CursoRepository.Editar(ProjetoEduX.Domains.Curso)">
+            <summary>
+            edita uma curso ja existente
+            </summary>
+            <param name="curso">curso a ser editada</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.CursoRepository.Listar">
+            <summary>
+            Lista as cursos ja criadas
+            </summary>
+            <returns>lista de cursos</returns>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.CursoRepository.Remover(System.Guid)">
+            <summary>
+            remove uma curso pelo seu id
+            </summary>
+            <param name="id">id da curso</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.InstituicaoRepository.Adicionar(ProjetoEduX.Domains.Instituicao)">
+            <summary>
+            Cria uma instituicao
+            </summary>
+            <param name="instituicao">Instituicao a ser criada</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.InstituicaoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca uma instituicao pelo Id
+            </summary>
+            <param name="id">Id da instituicao</param>
+            <returns>instituicao</returns>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.InstituicaoRepository.Editar(ProjetoEduX.Domains.Instituicao)">
+            <summary>
+            edita uma instituicao ja existente
+            </summary>
+            <param name="instituicao">instituicao a ser editada</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.InstituicaoRepository.Listar">
+            <summary>
+            Lista as instituicoes ja criadas
+            </summary>
+            <returns>lista de instituicoes</returns>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.InstituicaoRepository.Remover(System.Guid)">
+            <summary>
+            remove uma instituicao pelo seu id
+            </summary>
+            <param name="id">id da instituicao</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.NewsletterRepository.Adicionar(ProjetoEduX.Domains.Newsletter)">
+            <summary>
+            Cria uma newsletter
+            </summary>
+            <param name="newsletter">Newsletter a ser criada</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.NewsletterRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca uma newsletter pelo Id
+            </summary>
+            <param name="id">Id da newsletter</param>
+            <returns>newsletter</returns>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.NewsletterRepository.Editar(ProjetoEduX.Domains.Newsletter)">
+            <summary>
+            edita uma newsletter ja existente
+            </summary>
+            <param name="newsletter">newsletter a ser editada</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.NewsletterRepository.Listar">
+            <summary>
+            Lista as newsletter ja criadas
+            </summary>
+            <returns>lista de newsletter</returns>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.NewsletterRepository.Remover(System.Guid)">
+            <summary>
+            remove uma newsletter pelo seu id
+            </summary>
+            <param name="id">id da newsletter</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.UsuarioRepository.Adicionar(ProjetoEduX.Domains.Usuario)">
+            <summary>
+            Cria uma usuario
+            </summary>
+            <param name="usuario">usuario a ser criada</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.UsuarioRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca uma usuario pelo Id
+            </summary>
+            <param name="id">Id da usuario</param>
+            <returns>usuario</returns>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.UsuarioRepository.Editar(ProjetoEduX.Domains.Usuario)">
+            <summary>
+            edita uma usuario ja existente
+            </summary>
+            <param name="usuario">usuario a ser editada</param>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.UsuarioRepository.Listar">
+            <summary>
+            Lista as instituicoes ja criadas
+            </summary>
+            <returns>lista de instituicoes</returns>
+        </member>
+        <member name="M:ProjetoEduX.Repositories.UsuarioRepository.Remover(System.Guid)">
+            <summary>
+            remove uma usuario pelo seu id
+            </summary>
+            <param name="id">id da usuario</param>
+        </member>
+    </members>
+</doc>

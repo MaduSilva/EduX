@@ -24,7 +24,7 @@ namespace ProjetoEduX.Controllers
         /// </summary>
         /// <returns>Lista com todos os objetivos</returns>
         [HttpGet]
-        [Authorize(Roles = "Admin,Padrao")]
+     
         public IActionResult Get()
         {
             try
@@ -49,7 +49,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do Objetivo</param>
         /// <returns>Um Objetivo</returns>
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,Padrao")]
+        
         public IActionResult Get(Guid id)
         {
             try
@@ -80,7 +80,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="objetivo">Objeto de objetivo com alterações</param>
         /// <returns> Objetivo alterado</returns>
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
+       
         public IActionResult Put(Guid id, Objetivo objetivo)
         {
             try
@@ -105,7 +105,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="objetivo">Objeto completo de Objetivo</param>
         /// <returns>Objetivo cadastrado</returns>
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+   
         public IActionResult Post([FromForm] Objetivo objetivo)
         {
             try
@@ -128,7 +128,7 @@ namespace ProjetoEduX.Controllers
         /// <param name="id">Id do objetivo</param>
         /// <returns>Id excluido</returns>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
+        
         public IActionResult Delete(Guid id)
         {
             try
